@@ -5,9 +5,17 @@ library(rvest)
 library(purrr)
 library(polite)
 
+# This creates a session we can use to scrape data from the NC 
+# Senate's directory of senators.
+
 session = bow("https://www.ncleg.gov/Members/MemberList/S")
 
+# Then we use this to scrape the data.
+
 resp = scrape(session)
+
+# Then we use this establish where we're looking for information on
+# the webpage using a specific html element.
 
 senator_elements = html_elements(resp, ".col-8")
 
